@@ -16,7 +16,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd test-auto-pull
+            cd node_auto/express-mysql
             git fetch
             git reset --hard HEAD
             git merge origin/main
