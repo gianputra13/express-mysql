@@ -16,5 +16,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd express-mysql
-            git pull
+            ls
