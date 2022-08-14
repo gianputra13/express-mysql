@@ -17,6 +17,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd express-mysql
-            git fetch
-            git reset --hard HEAD
-            git merge origin/main
+            git pull
