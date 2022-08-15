@@ -1,0 +1,22 @@
+name: Deploy Prod
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Deployment auto
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH Remote PROXMOX
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd express-mysql
+            git fetch
+            git reset --hard HEAD
+            git merge origin/main
